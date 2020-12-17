@@ -14,11 +14,8 @@ import it.univpm.OOPDropBox.model.Tipi;
 public class Database {
 
 	/**
-	 * Funzione che restituisce il vettore contenente tutti i diversi membri
-	 * che hanno accesso a dei file condivisi dall'account considerato
-	 * 
-	 * @param listaTotale parametro che contiene tutti i file che hanno uno shared links
-	 * @return ArrayList<Membri> con email e nome di tutti i membri
+	 * @param listaTotale
+	 * @return
 	 */
 	public static ArrayList<Membri> TrovaMembriDifferenti(ArrayList<File> listaTotale) {
 		ArrayList<File> listaFile2 = new ArrayList<File>(listaTotale);
@@ -51,11 +48,9 @@ public class Database {
 		return listaMembri;
 	}
 
-	/**La funzione prende una lista di file e restituisce una lista contenente solamente
-	 * le varie tipologie dei file
-	 *
-	 * @param listaTotale Arraylist<File> di cui si vogliono ottenere le varie tipologie
-	 * @return ArrayList<Tipi> lista contenente solo i tipi dei file che gli sono stati dati (senza ripetizioni)
+	/**
+	 * @param listaTotale
+	 * @return
 	 */
 	public static ArrayList<Tipi> TrovaTipiDifferenti(ArrayList<File> listaTotale) {
 		ArrayList<File> fileMembro2 = new ArrayList<File>(listaTotale);
@@ -94,7 +89,7 @@ public class Database {
 	/**
 	 * @param listaTotale
 	 * @param membroCorrente
-	 * @return ArrayList<File>
+	 * @return
 	 */
 	public static ArrayList<File> FilePerMembro(ArrayList<File> listaTotale, Membri membroCorrente) {
 		ArrayList<File> fileMembro = new ArrayList<File>();
@@ -107,11 +102,9 @@ public class Database {
 	}
 
 	/**
-	 * Funzione che prende una lista di file e ne calcola la dimensione media
-	 * 
-	 * @param listaMembro ArrayList<File> contenente i file di cui si vuole calcolare la dimensione media
-	 * @param numeroFile Long che rappresenta il numero totale di file presenti nella lista
-	 * @return Long che indica la dimensione media dei file che sono stati passati alla funzione
+	 * @param listaMembro
+	 * @param numeroFile
+	 * @return
 	 */
 	public static Long CalcolaMedia(ArrayList<File> listaMembro, Long numeroFile) {
 		Long somma = (long) 0;
@@ -123,12 +116,9 @@ public class Database {
 	}
 
 	/**
-	 * Funzione che, data una lista di tipologie di file, ne calcola per ognuna il numero di apparizioni
-	 * in una determinata lista di File
-	 * 
-	 * @param listaTipi ArrayList<Tipi> contiene la lista di tutti i tipi che si vogliono identificare
-	 * @param listaMembro Arraylist<File> contiene la lista dei file in cui bisogna fare il conteggio dei tipi
-	 * @return ArrayList<Tipi> contiene per ogni tipo di file anche il numero
+	 * @param listaTipi
+	 * @param listaMembro
+	 * @return
 	 */
 	public static ArrayList<Tipi> FilePerTipo(ArrayList<Tipi> listaTipi, ArrayList<File> listaMembro) {
 
@@ -151,11 +141,8 @@ public class Database {
 	}
 
 	/**
-	 * funzione che data la lista degli shared link di una cartella
-	 * restituisce il numero di sottocartelle presenti in essa
-	 * 
-	 * @param listaCartella Arraylist<File> contiene la lista di link presenti in una cartella
-	 * @return Integer che rappresenta il numero di sottocartelle presenti
+	 * @param listaCartella
+	 * @return
 	 */
 	public static Integer Sottocartelle(ArrayList<File> listaCartella) {
 		Integer sottocartella = 0;
