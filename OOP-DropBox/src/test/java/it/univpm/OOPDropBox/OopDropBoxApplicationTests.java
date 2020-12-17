@@ -121,13 +121,13 @@ class OopDropBoxApplicationTests {
 			mainController.statsMembri(bodyParamErrato);
 		});
 		
-		String bodyFormatoErrato2 = "{}";
+		String bodyJsonVuoto = "{}";
 
 		assertThrows(JsonVuotoException.class, () -> {
-			mainController.stats(bodyFormatoErrato2);
+			mainController.stats(bodyJsonVuoto);
 		});
 		assertThrows(JsonVuotoException.class, () -> {
-			mainController.statsMembri(bodyFormatoErrato2);
+			mainController.statsMembri(bodyJsonVuoto);
 			});
 
 	}
