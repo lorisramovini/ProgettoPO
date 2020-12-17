@@ -24,10 +24,7 @@ import it.univpm.OOPDropBox.utils.SalvaDati;
 public class Filter {
 
 	/**
-	 * Funzione che restituisce un vettore contenente i dati sui file condivisi
-	 * presenti in ogni cartella 
-	 * 
-	 * @return ArrayList<StatCartella> contiene tutte le cartelle con i relativi link
+	 * @return
 	 * @throws TokenErratoException
 	 */
 	public static ArrayList<StatCartella> Stats() throws TokenErratoException {
@@ -38,10 +35,7 @@ public class Filter {
 	}
 
 	/**
-	 * funzione che restituisce un vettore contenente unicamente i dati sui
-	 * file condivisi presenti nella cartella home
-	 * 
-	 * @return ArrayLista<StatCartella> contenente i dati della home
+	 * @return
 	 * @throws TokenErratoException
 	 */
 	public static ArrayList<StatCartella> StatsHome() throws TokenErratoException {
@@ -81,10 +75,7 @@ public class Filter {
 	}
 
 	/**
-	 * Funzione che restituisce una lista di tutte le cartelle presenti nella home
-	 * e delle loro sottocartelle con i dati sui relativi fila condivisi
-	 * 
-	 * @return ArrayList<StatCartella> contente i dati delle varie cartelle
+	 * @return
 	 * @throws TokenErratoException
 	 */
 	public static ArrayList<StatCartella> StatsFolder() throws TokenErratoException {
@@ -119,13 +110,8 @@ public class Filter {
 	}
 
 	/**
-	 * Funzione che riceve in ingresso una lista di shared links e restituisce
-	 * la lista degli utenti che condividono questi link; per ogni utente
-	 * è indicata la quantità di file che condivide, suddivisi per tipo
-	 * 
-	 * @param sharedLink contiene una lista di shared links
-	 * @return StatUtenti oggetto che ha al suo interno un vettore contenente
-	 * tutti i membri con cui il profilo considerato condivide dei file
+	 * @param sharedLink
+	 * @return
 	 * @throws TokenErratoException
 	 */
 	public static StatUtenti StatMembri(ArrayList<Link> sharedLink) throws TokenErratoException {
@@ -168,11 +154,8 @@ public class Filter {
 	}
 
 	/**
-	 * Funzione usata per selezionare tra tutti i file presenti nelle varie cartelle solo quelli 
-	 * della tipologia richiesta nel filtro
-	 * 
-	 * @param listaTutte contiene la lista dei file da filtrare
-	 * @param filter contiene il filtro con operatore e tipo dati dall'utente
+	 * @param listaTutte
+	 * @param filter
 	 * @throws ParametroErratoException
 	 */
 	public static void Selezione(ArrayList<StatCartella> listaTutte, Filtro filter) throws ParametroErratoException {
@@ -202,12 +185,8 @@ public class Filter {
 	}
 
 	/**
-	 * Funzione che restituisce una lista di di utenti con i relativi faile
-	 * selezionando tra tutti i file solamente quelli
-	 * con il tipo corrispondente a quello richiesto dal filtro
-	 * 
-	 * @param filter contiene le richieste date dall'utente
-	 * @return StatUtenti contiene solamente i file per utente che rispettano il filtro passato
+	 * @param filter
+	 * @return
 	 * @throws TokenErratoException
 	 * @throws ParametroErratoException
 	 */
