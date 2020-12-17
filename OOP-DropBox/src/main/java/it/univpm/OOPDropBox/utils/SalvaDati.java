@@ -24,38 +24,39 @@ import it.univpm.OOPDropBox.model.Link;
  */
 public class SalvaDati {
 
+	/**
+	 * Queste sono le due variabili in cui andrò a salvare rispettivamente la lista degli shared links
+	 * e il token corrispondente al profilo Dropbox in esame
+	 */
 	private static ArrayList<Link> listaLink = new ArrayList<Link>();
 
 	private static String Token = new String();
 
-	/**
-	 * @return
-	 */
 	public static String getToken() {
 		return Token;
 	}
 
-	/**
-	 * @param token
-	 */
 	public static void setToken(String token) {
 		Token = token;
 	}
 
-	/**
-	 * @return
-	 */
 	public static ArrayList<Link> getLink() {
 		return listaLink;
 	}
 
-	/**
-	 * @param listaLink
-	 */
 	public static void setListaLink(ArrayList<Link> listaLink) {
 		SalvaDati.listaLink = listaLink;
 	}
 
+	/**
+	 * Funzione che effettua una chiamata API Dropbox e restituisce la risposta sotto forma
+	 * di un oggetto JSON
+	 * 
+	 * @param url String è l'url della richiesta API da effettuare
+	 * @param jsonBody String contiene il json body che si vuole passare alla richiesta API
+	 * @return JSONObject restituisce un JSONObject con la risposta
+	 * @throws TokenErratoException
+	 */
 	public static JSONObject SalvaApi(String url, String jsonBody) throws TokenErratoException {
 		JSONObject obj = new JSONObject();
 		try {
@@ -98,7 +99,9 @@ public class SalvaDati {
 	}
 
 	/**
-	 * @param obj
+	 * Funzione che dato un JSONObject ne mappa i dati in un modello
+	 * 
+	 * @param obj JSONObject che deve essere mappato
 	 */
 	public static void SalvaLink(JSONObject obj) {
 		JSONArray arr = (JSONArray) obj.get("links");
@@ -131,9 +134,11 @@ public class SalvaDati {
 	}
 
 	/**
-	 * @param vettore
-	 * @param listaRisultato
-	 * @return
+	 * Funzione che dato un JSONArray ne mappa i dati in un ArrayList<File>
+	 * 
+	 * @param vettore JSONArray che deve essere mappato
+	 * @param listaRisultato ArrayList<File> lista in cui salvare i dati
+	 * @return Arraylist<File> in cui sono stati salvati i dati del JSONArray
 	 */
 	public static ArrayList<File> SalvaPerCartella(JSONArray vettore, ArrayList<File> listaRisultato) {
 		for (int i = 0; i < vettore.size(); i++) {
@@ -159,10 +164,12 @@ public class SalvaDati {
 	}
 
 	/**
-	 * @param vettore
-	 * @param listaRisultato
-	 * @param p
-	 * @return
+	 * Funzione che dato un JSONArray ne mappa i dati in un ArrayList<File>
+	 * 
+	 * @param vettore JSONArray che deve essere mappato
+	 * @param listaRisultato ArrayList<File> lista in cui salvare i dati
+	 * @param p Link da cui estrarre alcuni dati
+	 * @return Arraylist<File> in cui sono stati salvati i dati del JSONArray
 	 */
 	public static ArrayList<File> SalvaPerUtente(JSONArray vettore, ArrayList<File> listaRisultato, Link p) {
 		for (int i = 0; i < vettore.size(); i++) {

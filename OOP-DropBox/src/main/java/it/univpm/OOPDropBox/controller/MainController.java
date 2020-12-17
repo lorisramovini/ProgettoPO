@@ -48,7 +48,7 @@ public class MainController {
 	}
 	
 	/**
-	 * path che, se chiamata senza inserire alcun parametro,
+	 * path che, se chiamato senza inserire alcun parametro,
 	 * aggiorna la lista degli shared link qualora siano stati modificati
 	 * nel profilo che si sta esaminando.
 	 * Altrimenti se il token inserito è valido crea una nuova lista di shared links
@@ -71,7 +71,12 @@ public class MainController {
 	}
 
 	/**
-	 * @return
+	 * path che fornisce la lista dei file per ogni cartella, indicando
+	 * numero di link per cartella, quanti di questi sono sottocartelle 
+	 * e quanti di questi sono file.
+	 * Dopodiché mostra un vettore che indica il numero di file per ogni tipo
+	 * 
+	 * @return String contenente le informazioni richieste
 	 * @throws JsonProcessingException
 	 * @throws TokenErratoException
 	 */
@@ -87,8 +92,11 @@ public class MainController {
 	}
 
 	/**
-	 * @param body
-	 * @return
+	 * path che restituisce una lista quella della chiamata GET /stats ma filtrata
+	 * in base al tipo di file richiesto nel body
+	 * 
+	 * @param body in formato JSON con operatore e tipologia da filtrare
+	 * @return Stringa contenente le informazioni richieste
 	 * @throws JsonProcessingException
 	 * @throws TokenErratoException
 	 */
@@ -119,7 +127,12 @@ public class MainController {
 	}
 
 	/**
-	 * @return
+	 * path che fornisce la lista dei file per ogni utente, indicando
+	 * per ognuno di essi il numero di file che condivide con il profilo considerato
+	 * e la loro dimensione media
+	 * Dopodiché mostra un vettore che indica il numero di file per ogni tipo
+	 * 
+	 * @return Stringa contenente le informazioni richieste
 	 * @throws JsonProcessingException
 	 * @throws TokenErratoException
 	 */
@@ -134,8 +147,11 @@ public class MainController {
 	}
 
 	/**
-	 * @param body
-	 * @return
+	 * path che restituisce una lista quella della chiamata GET /statsMembri ma filtrata
+	 * in base al tipo di file richiesto nel body
+	 * 
+	 * @param body in formato JSON con operatore e tipologia da filtrare
+	 * @return Stringa contenente le informazioni richieste
 	 * @throws JsonProcessingException
 	 * @throws TokenErratoException
 	 */

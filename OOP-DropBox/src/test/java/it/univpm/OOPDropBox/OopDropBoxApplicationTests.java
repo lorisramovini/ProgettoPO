@@ -130,7 +130,7 @@ class OopDropBoxApplicationTests {
 	 */
 	@Test
 	void test3() {
-		String body = " {\n" + "    \"operatore\": \"$eq\",\n"
+		String body = " {\n" + "    \"campo_filtro\": \"\",\n" + "    \"operatore\": \"$eq\",\n"
 				+ "    \"parametro\": \"photo\"\n" + "} ";
 
 		assertThrows(Exception.class, () -> {
