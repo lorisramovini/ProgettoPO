@@ -5,19 +5,18 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import it.univpm.OOPDropBox.exception.FormatoJsonErratoException;
 import it.univpm.OOPDropBox.exception.JsonErratoException;
+import it.univpm.OOPDropBox.exception.JsonVuotoException;
 import it.univpm.OOPDropBox.exception.OperatoreErratoException;
 import it.univpm.OOPDropBox.exception.ParametroErratoException;
 import it.univpm.OOPDropBox.exception.TokenErratoException;
 import it.univpm.OOPDropBox.controller.MainController;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 
 /**
  * @author Lorenzo Piccioni, Loris Ramovini
@@ -121,6 +120,15 @@ class OopDropBoxApplicationTests {
 		assertThrows(ParametroErratoException.class, () -> {
 			mainController.statsMembri(bodyParamErrato);
 		});
+		
+		String bodyFormatoErrato2 = "{}";
+
+		assertThrows(JsonVuotoException.class, () -> {
+			mainController.stats(bodyFormatoErrato2);
+		});
+		assertThrows(JsonVuotoException.class, () -> {
+			mainController.statsMembri(bodyFormatoErrato2);
+			});
 
 	}
 
@@ -130,7 +138,7 @@ class OopDropBoxApplicationTests {
 	 */
 	@Test
 	void test3() {
-		String body = " {\n" + "    \"campo_filtro\": \"\",\n" + "    \"operatore\": \"$eq\",\n"
+		String body = " {\n" + "    \"operatore\": \"$eq\",\n"
 				+ "    \"parametro\": \"photo\"\n" + "} ";
 
 		assertThrows(Exception.class, () -> {
@@ -141,5 +149,6 @@ class OopDropBoxApplicationTests {
 		});
 
 	}
+	
 
 }

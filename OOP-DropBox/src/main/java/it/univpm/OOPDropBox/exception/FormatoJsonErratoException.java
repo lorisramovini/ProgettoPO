@@ -1,7 +1,5 @@
 package it.univpm.OOPDropBox.exception;
 
-import org.json.simple.parser.ParseException;
-
 /**
  * @author Lorenzo Piccioni, Loris Ramovini
  *

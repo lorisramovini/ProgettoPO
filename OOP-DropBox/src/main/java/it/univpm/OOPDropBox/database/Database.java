@@ -53,6 +53,7 @@ public class Database {
 
 	/**La funzione prende una lista di file e restituisce una lista contenente solamente
 	 * le varie tipologie dei file
+	 *
 	 * @param listaTotale Arraylist<File> di cui si vogliono ottenere le varie tipologie
 	 * @return ArrayList<Tipi> lista contenente solo i tipi dei file che gli sono stati dati (senza ripetizioni)
 	 */
@@ -93,7 +94,7 @@ public class Database {
 	/**
 	 * @param listaTotale
 	 * @param membroCorrente
-	 * @return
+	 * @return ArrayList<File>
 	 */
 	public static ArrayList<File> FilePerMembro(ArrayList<File> listaTotale, Membri membroCorrente) {
 		ArrayList<File> fileMembro = new ArrayList<File>();

@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class ExceptionHandlerClass {
 
 	@ExceptionHandler(value = { FormatoJsonErratoException.class })
-	public ResponseEntity<Object> handleJsonErratoException(FormatoJsonErratoException e) {
+	public ResponseEntity<Object> handleFormatoJsonErratoException(FormatoJsonErratoException e) {
 
 		// 1.Crea l oggetto errore model
 		ExceptionModel errorModel = new ExceptionModel(HttpStatus.INTERNAL_SERVER_ERROR, Instant.now(),
@@ -36,7 +36,7 @@ public class ExceptionHandlerClass {
 	}
 	
 	@ExceptionHandler(value = { OperatoreErratoException.class })
-	public ResponseEntity<Object> handleJsonErratoException(OperatoreErratoException e) {
+	public ResponseEntity<Object> handleJsonOperatoreErratoException(OperatoreErratoException e) {
 
 		// 1.Crea l oggetto errore model
 		ExceptionModel errorModel = new ExceptionModel(HttpStatus.INTERNAL_SERVER_ERROR, Instant.now(),
@@ -74,4 +74,14 @@ public class ExceptionHandlerClass {
 		// 2.return response entity
 		return new ResponseEntity<>(errorModel, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
+	@ExceptionHandler(value = { JsonVuotoException.class })
+	public ResponseEntity<Object> handleJsonVuotoException(JsonVuotoException e) {
+
+		// 1.Crea l oggetto errore model
+		ExceptionModel errorModel = new ExceptionModel(HttpStatus.INTERNAL_SERVER_ERROR, Instant.now(),
+				e.getClass().getCanonicalName(), e.getMessage());
+		// 2.return response entity
+		return new ResponseEntity<>(errorModel, HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
 }

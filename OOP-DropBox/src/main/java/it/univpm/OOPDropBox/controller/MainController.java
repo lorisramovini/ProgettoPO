@@ -19,6 +19,7 @@ import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;
 
 import it.univpm.OOPDropBox.exception.FormatoJsonErratoException;
 import it.univpm.OOPDropBox.exception.JsonErratoException;
+import it.univpm.OOPDropBox.exception.JsonVuotoException;
 import it.univpm.OOPDropBox.exception.OperatoreErratoException;
 import it.univpm.OOPDropBox.exception.TokenErratoException;
 import it.univpm.OOPDropBox.filter.Filter;
@@ -117,6 +118,9 @@ public class MainController {
 		} catch (UnrecognizedPropertyException e) {
 			throw new JsonErratoException("Body scritto in modo errato");
 		}
+		if(filter.getOperatore()==null) {
+			throw new JsonVuotoException("Inserire delle coppie chiave valore nel JSON");
+		}
 		if (!(filter.getOperatore().contentEquals("$eq") || filter.getOperatore().contentEquals("$not"))) {
 			throw new OperatoreErratoException("L'operatore può essere solo $eq oppure $not");
 		}
@@ -171,6 +175,9 @@ public class MainController {
 			throw new FormatoJsonErratoException("Inserisci un body in formato JSON");
 		} catch (UnrecognizedPropertyException e) {
 			throw new JsonErratoException("Body scritto in modo errato");
+		}
+		if(filter.getOperatore()==null) {
+			throw new JsonVuotoException("Inserire delle coppie chiave valore nel JSON");
 		}
 
 		if (!(filter.getOperatore().contentEquals("$eq") || filter.getOperatore().contentEquals("$not"))) {
