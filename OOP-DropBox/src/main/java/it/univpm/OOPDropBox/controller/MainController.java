@@ -21,6 +21,7 @@ import it.univpm.OOPDropBox.exception.FormatoJsonErratoException;
 import it.univpm.OOPDropBox.exception.JsonErratoException;
 import it.univpm.OOPDropBox.exception.JsonVuotoException;
 import it.univpm.OOPDropBox.exception.OperatoreErratoException;
+import it.univpm.OOPDropBox.exception.ParametroErratoException;
 import it.univpm.OOPDropBox.exception.TokenErratoException;
 import it.univpm.OOPDropBox.filter.Filter;
 import it.univpm.OOPDropBox.filter.Filtro;
@@ -100,9 +101,14 @@ public class MainController {
 	 * @return Stringa contenente le informazioni richieste
 	 * @throws JsonProcessingException
 	 * @throws TokenErratoException
+	 * @throws FormatoJsonErratoException 
+	 * @throws JsonErratoException 
+	 * @throws JsonVuotoException 
+	 * @throws OperatoreErratoException 
+	 * @throws ParametroErratoException 
 	 */
 	@RequestMapping(method = RequestMethod.POST, value = "/stats", produces = "application/json")
-	public String stats(@RequestBody String body) throws JsonProcessingException, TokenErratoException {
+	public String stats(@RequestBody String body) throws JsonProcessingException, TokenErratoException, FormatoJsonErratoException, JsonErratoException, JsonVuotoException, OperatoreErratoException, ParametroErratoException {
 
 		ArrayList<StatCartella> listaTutte = Filter.Stats();
 		ObjectMapper mapper = new ObjectMapper();
@@ -118,7 +124,7 @@ public class MainController {
 		} catch (UnrecognizedPropertyException e) {
 			throw new JsonErratoException("Body scritto in modo errato");
 		}
-		if(filter.getOperatore()==null) {
+		if(filter.getOperatore()==null || filter.getTipo()==null) {
 			throw new JsonVuotoException("Inserire delle coppie chiave valore nel JSON");
 		}
 		if (!(filter.getOperatore().contentEquals("$eq") || filter.getOperatore().contentEquals("$not"))) {
@@ -158,9 +164,14 @@ public class MainController {
 	 * @return Stringa contenente le informazioni richieste
 	 * @throws JsonProcessingException
 	 * @throws TokenErratoException
+	 * @throws FormatoJsonErratoException 
+	 * @throws JsonErratoException 
+	 * @throws JsonVuotoException 
+	 * @throws OperatoreErratoException 
+	 * @throws ParametroErratoException 
 	 */
 	@RequestMapping(method = RequestMethod.POST, value = "/statsMembri", produces = "application/json")
-	public String statsMembri(@RequestBody String body) throws JsonProcessingException, TokenErratoException {
+	public String statsMembri(@RequestBody String body) throws JsonProcessingException, TokenErratoException, FormatoJsonErratoException, JsonErratoException, JsonVuotoException, OperatoreErratoException, ParametroErratoException {
 
 		StatUtenti tot = Filter.StatMembri(SalvaDati.getLink());
 		Filtro filter = new Filtro();
@@ -176,7 +187,7 @@ public class MainController {
 		} catch (UnrecognizedPropertyException e) {
 			throw new JsonErratoException("Body scritto in modo errato");
 		}
-		if(filter.getOperatore()==null) {
+		if(filter.getOperatore()==null || filter.getTipo()==null) {
 			throw new JsonVuotoException("Inserire delle coppie chiave valore nel JSON");
 		}
 
