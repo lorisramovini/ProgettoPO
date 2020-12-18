@@ -78,6 +78,9 @@ class OopDropBoxApplicationTests {
 	 * 
 	 * la quarta operazione verifica che venga lanciata l'eccezione ParametroErratoException
 	 * quando il valore assegnato alla chiave parametro non è tra i tipi presenti
+	 * 
+	 * la quinta operazione verifica che venga lanciata l'eccezione JsonVuotoException
+	 * quando il body contiene un JSON vuoto senza alcuna coppia chiave valore al suo interno
 	 */
 	@Test
 	void test2() {
